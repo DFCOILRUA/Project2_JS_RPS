@@ -1,4 +1,4 @@
-// Selecting elements from the DOM
+// Selecting DOM elements
 const playerScoreEl = document.getElementById('player-score');
 const computerScoreEl = document.getElementById('computer-score');
 const resultTextEl = document.getElementById('result-message');
@@ -6,18 +6,18 @@ const playerImage = document.getElementById('player-image');
 const computerImage = document.getElementById('computer-image');
 const buttons = document.querySelectorAll('#choices button'); // All the game choice buttons
 
-// Game state
+// Default game condition
 let playerScore = 0;
 let computerScore = 0;
 
-// Function to get the computer's choice
+// Function generating and storing the computer's choice
 function getComputerChoice() {
   const choices = ['rock', 'paper', 'scissors'];
   const randomIndex = Math.floor(Math.random() * 3);
   return choices[randomIndex];
 }
 
-// Function to determine the winner
+// Function determining the winner of the game
 function determineWinner(playerChoice, computerChoice) { // Modified to accept computerChoice
   if (playerChoice === computerChoice) {
     return 'It\'s a draw!';

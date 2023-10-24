@@ -15,7 +15,7 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #4CAF50;
+    background-color: #3d8640;
     color: white;
     padding: 20px 0; /* Increased padding for a taller header */
     border-bottom: 1px solid #ccc;
@@ -42,7 +42,7 @@ header h1 {
 #prompt-text {
     font-size: 1.5em; /* Adjust size as needed */
     font-weight: bold; /* Makes the text bold */
-    color: #4CAF50; /* Optional: Gives the text a color to make it stand out */
+    color: #3d8640; /* Optional: Gives the text a color to make it stand out */
     /* Remove margin-bottom if it's there from previous steps */
 }
 
@@ -50,25 +50,25 @@ header h1 {
     display: flex;
     justify-content: center; /* Aligns the child elements (buttons) in the center */
     flex-wrap: wrap; /* Allows the buttons to wrap to the next line on smaller screens */
-    gap: 10px; /* Optional: provides even space between the buttons */
+    gap: 12px; /* Optional: provides even space between the buttons */
     margin-bottom: 20px; /* Optional: for some space below the buttons area */
 }
 
 
 #choices button {
-    background-color: #4CAF50;
+    background-color: #3d8640;
     color: white;
     border: none;
     padding: 15px 30px; /* Larger buttons */
-    margin: 10px; /* More space between buttons */
-    cursor: pointer;
+    margin: 12px; /* More space between buttons */
+    cursor: pointer; /*using a pointer so as to keep in line with the rock paper scissors*/
     border-radius: 5px;
     font-size: 1.2em; /* Larger font size for button text */
     transition: background-color 0.3s; /* Smooth background color change */
 }
 
 #choices button:hover {
-    background-color: #45a049; /* Darker shade on hover */
+    background-color: #3d8640; /* Darker shade on hover */
 }
 
 /* Play Area, Player and Computer Sides */
@@ -88,8 +88,8 @@ header h1 {
 }
 
 #player-image, #computer-image {
-    width: 250px;
-    height: 250px;
+    width: 270px;
+    height: 270px;
     object-fit: cover;
     margin-bottom: 15px;
     border-radius: 50%; /* Optional: for rounded images */
@@ -98,8 +98,8 @@ header h1 {
 
 /* Result Message following Game Completion */
 #result-message {
-    text-align: center; /* Centers the text horizontally */
-    font-size: 1.5em; /* Optional: increases the font size for visibility */
+    text-align: center; /* Central allignment */
+    font-size: 1.7em; /* Optional: increases the font size for visibility */
     font-weight: bold; /* Optional: makes the text bold */
     color: #333; /* Optional: for a different text color, if desired */
     margin-top: 20px; /* Optional: adds some space above the result message */
@@ -109,19 +109,19 @@ header h1 {
 
 /* Footer Styles */
 footer {
-    background-color: #4CAF50;
+    background-color: #3d8640;
     color: white;
-    padding: 10px 0;
+    padding: 12px 0;
     border-top: 1px solid #ccc;
     text-align: center; /* Center-align the footer text */
 }
 
 footer p {
     margin: 0; /* Remove default margins */
-    padding: 10px; /* Add some spacing */
+    padding: 12px; /* Adding some spacing */
 }
 
-/* Responsive Adjustments */
+/* Responsive Ammendments */
 @media (max-width: 768px) {
     #play-area {
         flex-direction: column;
