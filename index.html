@@ -1,32 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- incorporating font awesome and google fonts-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Rock, Paper, Scissors</title>
+
+    <title>Rock Paper Scissors</title>
+    
 </head>
 <body>
-    <h1>Rock, Paper, Scissors</h1>
-    <h2>Make a choice:</h2>
-    <div class="btn-group">
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissors</button>
-    </div>
-    <div class="container">
-        <div class="box blue">
-            <h3>Your score: 0</h3>
-            <img src="Guessing_Man.jpg" alt="Your Choice">
+
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <div id="game-area">
+        <!-- The area where the game takes place -->
+
+        <div id="score-area">
+            <!-- Display the player and computer scores -->
+            <p>Your Score: <span id="player-score">0</span></p>
+            <p>Computer Score: <span id="computer-score">0</span></p>
         </div>
-        <div class="box red">
-            <h3>Computer score: 0</h3>
-            <img src="Guessing_Man.jpg" alt="Computer's Choice">
+
+        <div id="choices">
+            <!-- The player can make choices here -->
+            <button aria-label="Rock" data-choice="rock"><i class="fas fa-hand-rock"></i> Rock</button>
+            <button aria-label="Paper" data-choice="paper"><i class="fas fa-hand-paper"></i> Paper</button>
+            <button aria-label="Scissors" data-choice="scissors"><i class="fas fa-hand-scissors"></i> Scissors</button>
         </div>
+        
+
+        <div id="result-area">
+            <!-- Display the results -->
+            <p id="result-message">Make Your Move!</p>
+        </div>
+
+        <div id="images">
+            <!-- Placeholder for images representing the choices -->
+            <img id="player-image" src="assets/images/Guessing_Man.jpg" alt="Player's choice">
+            <img id="computer-image" src="assets/images/computer_deciding.jpg" alt="Computer's choice">
+        </div>
+
     </div>
-    <h2>Rules</h2>
-    <p>Scissors cut Paper | Paper covers Rock | Rock blunts Scissors</p>
-    <script src="assets/js/script.js"></script>
+
+    <footer>
+        <h2>Rules Of The Game:</h2>
+    <ul>
+        <p><strong>Rock</strong> crushes <strong>Scissors</strong></p>
+        <p><strong>Scissors</strong> cuts <strong>Paper</strong></p>
+        <p><strong>Paper</strong> covers <strong>Rock</strong></p>
+        <p>If both players choose the same move . .  it's a tie !!</p>
+    </ul>
+    </footer>
+
+    <script src="script.js"></script> 
+
 </body>
 </html>
