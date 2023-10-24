@@ -24,29 +24,32 @@
     <div id="game-area">
         <!-- The area where the game takes place -->
 
-        <div id="score-area">
-            <!-- Display the player and computer scores -->
-            <p>Your Score: <span id="player-score">0</span></p>
-            <p>Computer Score: <span id="computer-score">0</span></p>
-        </div>
-
-        <div id="choices">
+         <div id="choices">
             <!-- The player can make choices here -->
+            <p id="prompt-text">Make Your Move!</p>
             <button aria-label="Rock" data-choice="rock"><i class="fas fa-hand-rock"></i> Rock</button>
             <button aria-label="Paper" data-choice="paper"><i class="fas fa-hand-paper"></i> Paper</button>
             <button aria-label="Scissors" data-choice="scissors"><i class="fas fa-hand-scissors"></i> Scissors</button>
         </div>
         
+        <div id="play-area">
+            <!-- Player's side -->
+            <div class="player-side">
+                <p>Player Score: <span id="player-score">0</span></p>
+                <img id="player-image" src="assets/images/Guessing_Man.jpg" alt="Player's choice">
+            </div>
+
+            <!-- Computer's side -->
+            <div class="computer-side">
+                <p>Computer Score: <span id="computer-score">0</span></p>
+                <img id="computer-image" src="assets/images/computer_deciding.jpg" alt="Computer's choice">
+            </div>
+        </div>
+
 
         <div id="result-area">
             <!-- Display the results -->
-            <p id="result-message">Make Your Move!</p>
-        </div>
-
-        <div id="images">
-            <!-- Placeholder for images representing the choices -->
-            <img id="player-image" src="assets/images/Guessing_Man.jpg" alt="Player's choice">
-            <img id="computer-image" src="assets/images/computer_deciding.jpg" alt="Computer's choice">
+            <p id="result-message">Who wins?</p>
         </div>
 
     </div>
@@ -57,7 +60,8 @@
         <p><strong>Rock</strong> crushes <strong>Scissors</strong></p>
         <p><strong>Scissors</strong> cuts <strong>Paper</strong></p>
         <p><strong>Paper</strong> covers <strong>Rock</strong></p>
-        <p>If both players choose the same move . .  it's a tie !!</p>
+        <p>If both players choose the same move . .  it's a tie</p>
+        <p>Mother Always Knows Best !!</p>
     </ul>
     </footer>
 
