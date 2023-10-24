@@ -40,10 +40,10 @@ function updateScore() {
   computerScoreEl.textContent = computerScore;
 }
 
-// Function to set the image based on the player's choice
+// Function to set the image based on the user's choice
 function setChoiceImage(choice, playerOrComputer) {
     const imageElement = playerOrComputer === 'player' ? playerImage : computerImage; // use the already selected elements
-    imageElement.src = 'assets/images/' + choice + '.png'; // make sure this path matches your actual file location
+    imageElement.src = 'assets/images/' + choice.charAt(0).toUpperCase() + choice.slice(1) + '.png'; // dynamically chose corresponding button image
   }
   
   // Main function to handle button clicks and game logic
