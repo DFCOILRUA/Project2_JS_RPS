@@ -1,73 +1,71 @@
-// Main game functionality script
+// Selecting elements from the DOM
+const playerScoreEl = document.getElementById('player-score');
+const computerScoreEl = document.getElementById('computer-score');
+const resultTextEl = document.getElementById('result-message');
+const playerImage = document.getElementById('player-image');
+const computerImage = document.getElementById('computer-image');
+const buttons = document.querySelectorAll('#choices button'); // All the game choice buttons
 
-// Getting all the necessary elements from the DOM
-const playerScoreEl = document.getElementById('playerScore');
-const computerScoreEl = document.getElementById('computerScore');
-const playerChoiceEl = document.getElementById('playerChoice');
-const computerChoiceEl = document.getElementById('computerChoice');
-const resultText = document.querySelector('#result > p');
-const rockBtn = document.getElementById('rock');
-const paperBtn = document.getElementById('paper');
-const scissorsBtn = document.getElementById('scissors');
-
-// Initial scores
+// Game state
 let playerScore = 0;
 let computerScore = 0;
 
-// Event listeners for the buttons
-rockBtn.addEventListener('click', () => {
-    game('rock');
-});
-
-paperBtn.addEventListener('click', () => {
-    game('paper');
-});
-
-scissorsBtn.addEventListener('click', () => {
-    game('scissors');
-});
-
-// Game function
-function game(playerChoice) {
-    // Computer choice
-    const choices = ['rock', 'paper', 'scissors'];
-    const randomNum = Math.floor(Math.random() * 3);
-    const computerChoice = choices[randomNum];
-
-    // Update the DOM with the choices
-    playerChoiceEl.textContent = 'Player: ' + playerChoice;
-    computerChoiceEl.textContent = 'Computer: ' + computerChoice;
-
-    // Determine the winner
-    switch (playerChoice + computerChoice) {
-        case 'rockscissors':
-        case 'paperrock':
-        case 'scissorspaper':
-            win();
-            break;
-        case 'rockpaper':
-        case 'paperscissors':
-        case 'scissorsrock':
-            lose();
-            break;
-        default:
-            draw();
-    }
+// Function to get the computer's choice
+function getComputerChoice() {
+  const choices = ['rock', 'paper', 'scissors'];
+  const randomIndex = Math.floor(Math.random() * 3);
+  return choices[randomIndex];
 }
 
-// Update score and result text
-function win() {
+// Function to determine the winner
+function determineWinner(playerChoice, computerChoice) { // Modified to accept computerChoice
+  if (playerChoice === computerChoice) {
+    return 'It\'s a draw!';
+  }
+
+  if ((playerChoice === 'rock' && computerChoice === 'scissors') ||
+      (playerChoice === 'scissors' && computerChoice === 'paper') ||
+      (playerChoice === 'paper' && computerChoice === 'rock')) {
     playerScore++;
-    playerScoreEl.textContent = playerScore;
-    resultText.textContent = 'You Win!';
-}
-
-function lose() {
+    return 'You win!';
+  } else {
     computerScore++;
-    computerScoreEl.textContent = computerScore;
-    resultText.textContent = 'You Lose!';
+    return 'Computer wins!';
+  }
 }
 
-function draw() {
-    resultText.textContent = 'It\'s a Draw!';
+// Function to update the score display
+function updateScore() {
+  playerScoreEl.textContent = playerScore;
+  computerScoreEl.textContent = computerScore;
 }
+
+// Function to set the image based on the player's choice
+function setChoiceImage(choice, playerOrComputer) {
+    const imageElement = playerOrComputer === 'player' ? playerImage : computerImage; // use the already selected elements
+    imageElement.src = 'assets/images/' + choice + '.png'; // make sure this path matches your actual file location
+  }
+  
+  // Main function to handle button clicks and game logic
+  function handlePlayerChoice(choice) {
+    const computerChoice = getComputerChoice(); // Determine the computer's choice
+  
+    // Update images based on current choices
+    setChoiceImage(choice, 'player');
+    setChoiceImage(computerChoice, 'computer');
+  
+    // Determine the winner and update the score
+    const resultMessage = determineWinner(choice, computerChoice);
+    updateScore();
+  
+    // Display the result message
+    resultTextEl.textContent = resultMessage + ` You chose ${choice}, Computer chose ${computerChoice}.`;
+  }
+  
+  // Setting up the event listeners for each button
+  buttons.forEach(button => {
+    button.addEventListener('click', function() {
+      const playerChoice = this.getAttribute('data-choice'); // Get the choice from the button
+      handlePlayerChoice(playerChoice);
+    });
+  });
