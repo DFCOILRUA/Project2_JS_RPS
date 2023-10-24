@@ -34,12 +34,16 @@ header h1 {
 }
 
 
+#prompt-container {
+    text-align: center; /* Centers the text */
+    margin-bottom: 20px; /* Adds some space between the text and the buttons */
+}
+
 #prompt-text {
     font-size: 1.5em; /* Adjust size as needed */
     font-weight: bold; /* Makes the text bold */
-    margin-bottom: 20px; /* Adds some space between the text and the buttons */
     color: #4CAF50; /* Optional: Gives the text a color to make it stand out */
-    text-align: center; /* Centers the text */
+    /* Remove margin-bottom if it's there from previous steps */
 }
 
 #choices {
@@ -84,13 +88,24 @@ header h1 {
 }
 
 #player-image, #computer-image {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     margin-bottom: 15px;
     border-radius: 50%; /* Optional: for rounded images */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
 }
+
+/* Result Message following Game Completion */
+#result-message {
+    text-align: center; /* Centers the text horizontally */
+    font-size: 1.5em; /* Optional: increases the font size for visibility */
+    font-weight: bold; /* Optional: makes the text bold */
+    color: #333; /* Optional: for a different text color, if desired */
+    margin-top: 20px; /* Optional: adds some space above the result message */
+    margin-bottom: 20px; /* Optional: adds some space below the result message */
+}
+
 
 /* Footer Styles */
 footer {
